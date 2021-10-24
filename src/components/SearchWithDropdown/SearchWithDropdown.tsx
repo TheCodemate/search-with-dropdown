@@ -7,22 +7,26 @@ const SearchWithDropdown = () => {
   const { state, dispatch } = useContext(Context);
   const { data, isDropActive, searchedPhrase } = state;
 
-  // const [currentData, setCurrentData] = useState<any>(books); // dodać typ
-  // const [searchedPhrase, setSearchPhrase] = useState('');
-  // const [isDropActive, setIsDropActive] = useState(false); //useContext
+  console.log('searchedPhrase -> ', searchedPhrase);
 
-  // const handleActivateDropdown = (phrase: string) => {
-  // if (phrase.length > 3) {
-  // setIsDropActive(true);
-  // setCurrentData(
-  // currentData.filter(
-  // (item: { name: string; regularPrice: number; salePrice: number }) =>
-  // item.name.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()) //regexp
-  // )
-  // );
-  //
-  // return;
-  // }
+  const handleActivateDropdown = (phrase: string) => {
+    if (phrase.length >= 3) {
+      dispatch({ type: ACTIONS.SET_DROPDOWN_ACTIVE });
+      console.log('isDropDownActive: : ', state.isDropActive);
+      // setCurrentData(
+      // currentData.filter(
+      // (item: { name: string; regularPrice: number; salePrice: number }) =>
+      // item.name.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()) //regexp
+      // )
+      // );
+      //
+      return;
+    }
+
+    dispatch({ type: ACTIONS.SET_DROPDOWN_UNACTIVE });
+    console.log('isDropDownActive: : ', state.isDropActive);
+    return;
+  };
 
   // setIsDropActive(false);
   // setCurrentData(data);
@@ -34,11 +38,11 @@ const SearchWithDropdown = () => {
         type=""
         className="search-with-drop"
         onChange={e => {
+          handleActivateDropdown(e.target.value);
           dispatch({
             type: ACTIONS.SET_SEARCHED_PHRASE,
-            searchedPhrase: e.target.value
+            payload: e.target.value
           });
-          // handleActivateDropdown(e.target.value);
         }} //udeCallbsck
       />
       <DropdownList

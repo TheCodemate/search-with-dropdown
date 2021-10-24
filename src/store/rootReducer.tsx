@@ -2,12 +2,21 @@ import { ACTIONS } from '../store';
 import { IAction, IState } from '../types';
 
 const rootReducer = (state: IState, action: IAction): IState => {
-  const { searchedPhrase } = state;
   switch (action.type) {
     case ACTIONS.SET_SEARCHED_PHRASE:
       return {
         ...state,
-        searchedPhrase: searchedPhrase
+        searchedPhrase: action.payload ? action.payload : ''
+      };
+    case ACTIONS.SET_DROPDOWN_ACTIVE:
+      return {
+        ...state,
+        isDropActive: true
+      };
+    case ACTIONS.SET_DROPDOWN_UNACTIVE:
+      return {
+        ...state,
+        isDropActive: false
       };
 
     default:

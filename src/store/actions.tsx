@@ -1,0 +1,5 @@
+enum ACTIONS {
+  SET_SEARCHED_PHRASE = 'SET_SEARCHED_PHRASE'
+}
+
+export default ACTIONS;

@@ -1,19 +1,14 @@
 import React from 'react';
 import { searchDataType } from '../../types';
 import { DropdownItem } from '../../components';
-import { handleTextHighlighting } from '../../utils';
 
-const DropdownList = ({
-  data,
-  isDropActive,
-  searchedPhrase
-}: searchDataType) => {
-  if (!isDropActive) return null;
+const DropdownList = ({ data, searchedPhrase }: searchDataType) => {
   return (
     <div>
       {data.map(item => (
         <DropdownItem
-          name={handleTextHighlighting(item.name, searchedPhrase)}
+          name={item.name}
+          searchedPhrase={searchedPhrase}
           regularPrice={item.regularPrice}
           salePrice={item.salePrice}
         />

@@ -8,9 +8,16 @@ const rootReducer = (state: IState, action: IAction): IState => {
         ...state,
         searchedPhrase: action.payload ? action.payload : ''
       };
-    case ACTIONS.SET_DROPDOWN_ACTIVE:
+    case ACTIONS.DISPLAY_SEARCH_RESULTS:
       return {
         ...state,
+        filteredData: (state.filteredData = [...state.data].filter(book => {
+          const filteredBooks = new RegExp(`${action.payload}`, 'gi').test(
+            book.name
+          );
+
+          return filteredBooks;
+        })),
         isDropActive: true
       };
     case ACTIONS.SET_DROPDOWN_UNACTIVE:

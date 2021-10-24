@@ -1,19 +1,23 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
+import { highlightTextPart } from '../../utils';
 
 interface DropdownItemPropsType {
-  name: ReactElement;
+  name: string;
   regularPrice: number;
   salePrice: number;
+  searchedPhrase: string;
 }
 
 const DropdownItem = ({
   name,
+  searchedPhrase,
   regularPrice,
   salePrice
 }: DropdownItemPropsType) => {
   return (
     <div>
-      {name}, {regularPrice}, {salePrice}
+      {highlightTextPart(name, searchedPhrase)} regular price: {regularPrice},
+      sale: {salePrice}
     </div>
   );
 };

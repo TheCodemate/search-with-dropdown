@@ -5,32 +5,16 @@ import { ACTIONS } from '../../store';
 
 const SearchWithDropdown = () => {
   const { state, dispatch } = useContext(Context);
-  const { data, isDropActive, searchedPhrase } = state;
-
-  console.log('searchedPhrase -> ', searchedPhrase);
+  const { filteredData, isDropActive, searchedPhrase } = state;
 
   const handleActivateDropdown = (phrase: string) => {
     if (phrase.length >= 3) {
-      dispatch({ type: ACTIONS.SET_DROPDOWN_ACTIVE });
-      console.log('isDropDownActive: : ', state.isDropActive);
-      // setCurrentData(
-      // currentData.filter(
-      // (item: { name: string; regularPrice: number; salePrice: number }) =>
-      // item.name.toLocaleLowerCase().includes(phrase.toLocaleLowerCase()) //regexp
-      // )
-      // );
-      //
+      dispatch({ type: ACTIONS.DISPLAY_SEARCH_RESULTS, payload: phrase });
       return;
     }
-
     dispatch({ type: ACTIONS.SET_DROPDOWN_UNACTIVE });
-    console.log('isDropDownActive: : ', state.isDropActive);
     return;
   };
-
-  // setIsDropActive(false);
-  // setCurrentData(data);
-  // };
 
   return (
     <div>
@@ -45,11 +29,13 @@ const SearchWithDropdown = () => {
           });
         }} //udeCallbsck
       />
-      <DropdownList
-        data={data}
-        isDropActive={isDropActive}
-        searchedPhrase={searchedPhrase}
-      />
+      {isDropActive ? (
+        <DropdownList
+          data={filteredData}
+          isDropActive={isDropActive}
+          searchedPhrase={searchedPhrase}
+        />
+      ) : null}
     </div>
   );
 };

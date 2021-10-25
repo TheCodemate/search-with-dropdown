@@ -1,15 +1,16 @@
 import React from 'react';
-import './App.css';
+import './App.styld.tsx';
 import { ContextProvider } from './context';
 import { SearchWithDropdown } from './components';
+import { AppStyled } from './App.styld';
 
 function App() {
   return (
-    <ContextProvider>
-      <div className="App">
+    <AppStyled>
+      <ContextProvider>
         <SearchWithDropdown />
-      </div>
-    </ContextProvider>
+      </ContextProvider>
+    </AppStyled>
   );
 }
 

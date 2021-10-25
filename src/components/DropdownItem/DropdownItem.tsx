@@ -1,5 +1,6 @@
 import React from 'react';
 import { highlightTextPart } from '../../utils';
+import { DropdownItemStyled } from './DropdownItem.styled';
 
 interface DropdownItemPropsType {
   name: string;
@@ -14,11 +15,14 @@ const DropdownItem = ({
   regularPrice,
   salePrice
 }: DropdownItemPropsType) => {
+  const highlightedBits = highlightTextPart(name, searchedPhrase);
+
   return (
-    <div>
-      {highlightTextPart(name, searchedPhrase)} regular price: {regularPrice},
-      sale: {salePrice}
-    </div>
+    <DropdownItemStyled>
+      {highlightedBits}
+      <span>regular price: {regularPrice}</span>
+      <span>sale: {salePrice}</span>
+    </DropdownItemStyled>
   );
 };
 

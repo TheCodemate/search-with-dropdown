@@ -2,6 +2,10 @@ import { useContext } from 'react';
 import { Context } from '../../context';
 import { DropdownList } from '../../components';
 import { ACTIONS } from '../../store';
+import {
+  SearchInputStyled,
+  SearchWithDropdownStyled
+} from './SearchWithDropdown.styled';
 
 const SearchWithDropdown = () => {
   const { state, dispatch } = useContext(Context);
@@ -17,8 +21,8 @@ const SearchWithDropdown = () => {
   };
 
   return (
-    <div>
-      <input
+    <SearchWithDropdownStyled>
+      <SearchInputStyled
         type=""
         className="search-with-drop"
         onChange={e => {
@@ -36,7 +40,7 @@ const SearchWithDropdown = () => {
           searchedPhrase={searchedPhrase}
         />
       ) : null}
-    </div>
+    </SearchWithDropdownStyled>
   );
 };
 

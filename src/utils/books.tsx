@@ -10,32 +10,32 @@ const books = [
     salePrice: 3.99
   },
   {
-    name: `Harry Potter: Philosopher's Stone`,
+    name: `Book Harry Potter: Philosopher's Stone`,
     regularPrice: 99,
     salePrice: 21
   },
   {
-    name: `Harry Potter: Chamber of Secrets`,
+    name: `Book Harry Potter: Chamber of Secrets`,
     regularPrice: 99,
     salePrice: 21
   },
   {
-    name: `Harry Potter: Prisoner of Azkaban `,
+    name: `Book Harry Potter: Prisoner of Azkaban `,
     regularPrice: 99,
     salePrice: 21
   },
   {
-    name: `Harry Potter: Goblet of Fire  `,
+    name: `Book Harry Potter: Goblet of Fire  `,
     regularPrice: 99,
     salePrice: 21
   },
   {
-    name: `Harry Potter: Order of the Phoenix`,
+    name: `Book Harry Potter: Order of the Phoenix`,
     regularPrice: 99,
     salePrice: 21
   },
   {
-    name: `Harry Potter: Half-Blood Prince`,
+    name: `Book Harry Potter: Half-Blood Prince`,
     regularPrice: 99,
     salePrice: 21
   },
